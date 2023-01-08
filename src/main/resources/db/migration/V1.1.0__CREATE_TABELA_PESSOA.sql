@@ -1,4 +1,4 @@
-CREATE TABLE cadastro.pessoa (
+CREATE TABLE IF NOT EXISTS cadastro.pessoa (
   id int NOT NULL AUTO_INCREMENT,
   uuid varchar(255) NOT NULL,
   dataAlteracao datetime(6) DEFAULT NULL,
