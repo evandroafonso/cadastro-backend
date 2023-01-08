@@ -21,6 +21,7 @@ public class EnderecoConverter {
 	entity.setNumero(api.getNumero());
 	entity.setCep(api.getCep());
 	entity.setCidade(api.getCidade());
+	entity.setPrincipal(api.getPrincipal());
 
 	return entity;
     }
@@ -35,6 +36,7 @@ public class EnderecoConverter {
 	api.setNumero(entity.getNumero());
 	api.setCep(entity.getCep());
 	api.setCidade(entity.getCidade());
+	api.setPrincipal(entity.getPrincipal());
 
 	return api;
     }

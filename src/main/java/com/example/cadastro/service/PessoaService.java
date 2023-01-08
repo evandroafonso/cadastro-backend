@@ -24,6 +24,9 @@ public class PessoaService {
     @Autowired
     PessoaRepository pessoaRepository;
 
+    @Autowired
+    EnderecoService enderecoService;
+
     Logger logger = LoggerFactory.getLogger(PessoaService.class);
 
     @Transactional

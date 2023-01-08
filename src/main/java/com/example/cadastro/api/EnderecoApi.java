@@ -14,5 +14,6 @@ public class EnderecoApi {
     private String cep;
     private Long numero;
     private String cidade;
+    private Boolean principal;
 
 }

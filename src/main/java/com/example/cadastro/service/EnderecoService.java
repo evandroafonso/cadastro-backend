@@ -33,4 +33,9 @@ public class EnderecoService {
 	return enderecoConverter.toListApi(entities);
     }
 
+//    public List<EnderecoApi> listarPorPessoa(Long idPessoa) {
+//	List<Endereco> entities = enderecoRepository.(idPessoa);
+//	return enderecoConverter.toListApi(entities);
+//    }
+
 }
