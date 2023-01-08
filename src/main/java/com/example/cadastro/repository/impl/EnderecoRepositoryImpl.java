@@ -21,9 +21,9 @@ public class EnderecoRepositoryImpl implements EnderecoRepositoryCustom {
     public List<Endereco> listarPorPessoa(Long idPessoa) {
 
 	final StringBuilder comandoHql = new StringBuilder();
-	comandoHql.append("SELECT endereco FROM Endereco endereco, Pessoa pessoa ");
-	comandoHql.append("JOIN pessoa.idsEnderecos idsEnderecosPessoa ");
-	comandoHql.append("WHERE idsEnderecosPessoa.idPessoa = :idPessoa");
+	comandoHql.append("SELECT DISTINCT endereco FROM Endereco endereco, EnderecoPessoa enderecoPessoa ");
+	comandoHql.append("WHERE enderecoPessoa.idPessoa = :idPessoa ");
+	comandoHql.append("AND enderecoPessoa.idEndereco = endereco.id");
 
 	TypedQuery<Endereco> query = entityManager.createQuery(comandoHql.toString(), Endereco.class);
 
