@@ -2,6 +2,7 @@ package com.example.cadastro.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -32,6 +33,13 @@ public class PessoaService {
     @Transactional
     public PessoaApi persistir(PessoaApi api) {
 	Pessoa entity = pessoaConverter.toEntity(api);
+	if (api.getEnderecos() != null && api.getEnderecos().isEmpty()) {
+	    Boolean possuiEnderecoPrincipal = api.getEnderecos().stream().anyMatch(i -> i.getPrincipal());
+	    if (possuiEnderecoPrincipal.equals(Boolean.TRUE)) {
+		enderecoService.alterarEnderecoPrincipal(api.getEnderecos());
+	    }
+	}
+
 	return pessoaConverter.toApi(pessoaRepository.save(entity));
     }
 
@@ -40,6 +48,13 @@ public class PessoaService {
 
 	if (api.getId() != null) {
 	    Pessoa entity = pessoaConverter.toEntity(api);
+
+	    List<Boolean> possuiEnderecoPrincipal = api.getEnderecos().stream().map(i -> i.getPrincipal())
+		    .collect(Collectors.toList());
+
+	    if (possuiEnderecoPrincipal != null && possuiEnderecoPrincipal.contains(Boolean.TRUE)) {
+		enderecoService.alterarEnderecoPrincipal(api.getEnderecos());
+	    }
 	    return pessoaConverter.toApi(pessoaRepository.save(entity));
 	} else {
 	    logger.error("Registro incompleto, tente novamente!");
