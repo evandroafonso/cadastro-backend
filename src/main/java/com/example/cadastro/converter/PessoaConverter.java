@@ -26,7 +26,9 @@ public class PessoaConverter {
 	entity.setDataAlteracao(api.getDataAlteracao());
 	entity.setNome(api.getNome());
 	entity.setDataNascimento(api.getDataNascimento());
-	entity.setIdsEnderecos(api.getEnderecos().stream().map(EnderecoApi::getId).collect(Collectors.toSet()));
+	if (api.getEnderecos() != null && !api.getEnderecos().isEmpty()) {
+	    entity.setIdsEnderecos(api.getEnderecos().stream().map(EnderecoApi::getId).collect(Collectors.toSet()));
+	}
 
 	return entity;
     }
@@ -39,8 +41,9 @@ public class PessoaConverter {
 	api.setDataAlteracao(entity.getDataAlteracao());
 	api.setNome(entity.getNome());
 	api.setDataNascimento(entity.getDataNascimento());
-	api.setEnderecos(enderecoService.listarPorIds(entity.getIdsEnderecos()));
-
+	if (entity.getIdsEnderecos() != null && !entity.getIdsEnderecos().isEmpty()) {
+	    api.setEnderecos(enderecoService.listarPorIds(entity.getIdsEnderecos()));
+	}
 	return api;
     }
 

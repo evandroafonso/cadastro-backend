@@ -2,6 +2,7 @@ package com.example.cadastro.service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -36,6 +37,23 @@ public class EnderecoService {
     public List<EnderecoApi> listarPorPessoa(Long idPessoa) {
 	List<Endereco> entities = enderecoRepository.listarPorPessoa(idPessoa);
 	return enderecoConverter.toListApi(entities);
+    }
+
+    public void alterarEnderecoPrincipal(List<EnderecoApi> enderecosApi) {
+	List<Long> ids = enderecosApi.stream().map(i -> i.getId()).collect(Collectors.toList());
+	List<Endereco> entities = enderecoRepository.findAllById(ids);
+
+	// remove endereços anteriormente marcados como principais e atualiza
+	entities.stream().forEach(a -> {
+	    a.setPrincipal(null);
+	    enderecoRepository.save(a);
+	    for (EnderecoApi api : enderecosApi) {
+		if (a.getId() == api.getId()) {
+		    a.setPrincipal(api.getPrincipal());
+		}
+	    }
+	});
+
     }
 
 }
