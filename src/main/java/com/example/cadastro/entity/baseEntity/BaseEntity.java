@@ -13,10 +13,14 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @MappedSuperclass
+@AllArgsConstructor
+@NoArgsConstructor
 public class BaseEntity {
 
     @Id

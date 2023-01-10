@@ -1,11 +1,16 @@
 package com.example.cadastro.api;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PessoaApi {
 
     private Long id;
@@ -13,6 +18,6 @@ public class PessoaApi {
     private Date dataAlteracao;
     private String nome;
     private Date dataNascimento;
-    private List<EnderecoApi> enderecos;
+    private List<EnderecoApi> enderecos = new ArrayList<>();
 
 }
