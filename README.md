@@ -41,6 +41,6 @@ mvn clean compile
    - [Java 11](https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html)
    - [Spring Tools Suite - STS](https://spring.io/tools)
    - [Banco de dados H2](https://www.h2database.com/html/main.html)
-   - [Postman](https://www.postman.com/downloads/) após o download, você pode importar a collection do Daily Menu utilizando esse [link](https://api.postman.com/collections/17110208-efa0ad09-26d6-433e-8200-270cb30bfcc3?access_key=PMAT-01GPDN9NH5F909GG11BY21NKZ2)
+   - [Postman](https://www.postman.com/downloads/) após o download, você pode importar a collection do projeto utilizando esse [link](https://api.postman.com/collections/17110208-efa0ad09-26d6-433e-8200-270cb30bfcc3?access_key=PMAT-01GPDN9NH5F909GG11BY21NKZ2)
 
 4. para criar as tabelas no banco de dados basta conectar o banco de dados e inciar o projeto no STS que o Flyway criará automaticamente as tabelas necessárias.
