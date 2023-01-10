@@ -1,1 +1,17 @@
+com/example/cadastro/converter/PessoaConverter.class
+com/example/cadastro/repository/impl/EnderecoRepositoryImpl.class
+com/example/cadastro/controller/EnderecoController.class
+com/example/cadastro/entity/baseEntity/BaseEntity.class
+com/example/cadastro/service/EnderecoService.class
+com/example/cadastro/repository/custom/EnderecoRepositoryCustom.class
+com/example/cadastro/converter/EnderecoConverter.class
 com/example/cadastro/CadastroApplication.class
+com/example/cadastro/entity/EnderecoPessoa.class
+com/example/cadastro/entity/Endereco.class
+com/example/cadastro/api/PessoaApi.class
+com/example/cadastro/api/EnderecoApi.class
+com/example/cadastro/repository/EnderecoRepository.class
+com/example/cadastro/entity/Pessoa.class
+com/example/cadastro/controller/PessoaController.class
+com/example/cadastro/repository/PessoaRepository.class
+com/example/cadastro/service/PessoaService.class
